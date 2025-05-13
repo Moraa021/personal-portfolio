@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercy Naliaka Moraa | ICT Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --glass: rgba(255, 255, 255, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 0.5rem 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: var(--gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 90%;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: white;
+            color: var(--primary);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            color: white;
+        }
+        
+        .btn:hover::after {
+            opacity: 1;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* Animated shapes in hero */
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 15s infinite ease-in-out;
+            z-index: 1;
+        }
+        
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: white;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: white;
+            transform: rotate(45deg);
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: white;
+            top: 60%;
+            left: 30%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* About Section */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--primary);
+            border-radius: 10px;
+            top: 15px;
+            left: 15px;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .about-image:hover::before {
+            top: 10px;
+            left: 10px;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
+        
+        .timeline {
+            margin-top: 2rem;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--gradient);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% - 15px);
+            background: var(--gradient);
+            opacity: 0.3;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .timeline-date {
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            margin: 0.5rem 0;
+            color: var(--secondary);
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category h3 i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-item {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-item i {
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+        
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .project-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+            background: white;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .project-content p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .project-links {
+            margin-top: 1rem;
+        }
+        
+        .project-links a {
+            display: inline-block;
+            margin-right: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .project-links a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        /* Education Section */
+        .education-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .education-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .education-title {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .education-date {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .education-details {
+            margin-bottom: 1rem;
+        }
+        
+        .courses-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .course-tag {
+            background-color: rgba(74, 111, 165, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        
+        .course-tag:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--gradient);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,100 L100,100 L100,0 Q50,20 0,0 Z"></path></svg>');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            margin: 0 0.5rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                padding: 2rem 0;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Scroll to top button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">Mercy Moraa</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Animated shapes -->
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1>Mercy Naliaka Moraa</h1>
+                <p>ICT Student | Web Developer | System Designer</p>
+                <p class="tagline">Empowering systems and processes through tech-driven solutions.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">View My Projects</a>
+                    <a href="./cv.pdf" class="btn btn-outline">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Passionate ICT professional with a strong academic foundation and practical skills in technology solutions.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a dedicated Bachelor of Science student in Information and Communication Technology Management at Maseno University, expected to graduate in 2026. My academic journey has equipped me with a unique blend of technical expertise and business acumen, enabling me to bridge the gap between technology and organizational needs.</p>
+                    <p>My passion lies in creating efficient systems and workflows that leverage technology to solve real-world problems. Whether it's designing intuitive applications, optimizing databases, or implementing secure networks, I thrive on transforming complex challenges into elegant solutions.</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2022 - Present</div>
+                            <div class="timeline-title">Bachelor of Science in ICT Management</div>
+                            <p>Maseno University | Current GPA: 3.2</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2025</div>
+                            <div class="timeline-title">ICT Industrial Attachment</div>
+                            <p>Gained practical experience in system administration and workflow applications</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2024</div>
+                            <div class="timeline-title">Group Project Lead</div>
+                            <p>Successfully delivered an ICTM project proposal with distinction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="./about.jpg" alt="Mercy Naliaka Moraa">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills & Competencies</h2>
+                <p>A diverse skill set that combines technical expertise with business process understanding.</p>
+            </div>
+            <div class="skills-container">
+                <!-- Technical Skills -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item"><i class="fas fa-check"></i> HTML, CSS, JavaScript</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Python, C Programming</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> SQL & Advanced Database Systems</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Web Design & Development</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Event-Driven Programming</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Object-Oriented Programming (OOP)</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> System Analysis & Design</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> UML diagrams (Use Case, Sequence, Class)</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Platform Technologies</li>
+                    </ul>
+                </div>
+                
+                <!-- ICT & Business Integration -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> ICT & Business Integration</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item"><i class="fas fa-check"></i> Operations Management</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Organization Theory</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Organizational Processes</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> ICT Consultancy Services</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Workflow Applications Design</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> System Support & Administration</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Project Proposal Writing</li>
+                    </ul>
+                </div>
+                
+                <!-- Networking & Infrastructure -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-network-wired"></i> Networking & Infrastructure</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item"><i class="fas fa-check"></i> Switching, Routing, Wireless Essentials</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> LAN Design & Implementation</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Enterprise Networking & Security</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> System Administration</li>
+                    </ul>
+                </div>
+                
+                <!-- Analytical & Structural Foundations -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Analytical & Structural Foundations</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item"><i class="fas fa-check"></i> Discrete Structures</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Principles of Statistical Inference</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Data Structures & Algorithms</li>
+                        <li class="skill-item"><i class="fas fa-check"></i> Software Engineering</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+                <p>Academic and personal projects demonstrating my technical and analytical capabilities.</p>
+            </div>
+            <div class="projects-container">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="city.png" alt="City Services App Wireframe">
+                    </div>
+                    <div class="project-content">
+                        <h3>City Services App Wireframe</h3>
+                        <p>Designed user experience layout for a digital city service management platform that enhances intuitive access to urban services.</p>
+                        <div class="project-meta">
+                            <span>Draw.io</span>
+                            <span>2024</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="./CITY PROJECT.zip">View Wireframes</a>
+                            <a href="#city-case-study">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="queue.png" alt="Restaurant Queue System">
+                    </div>
+                    <div class="project-content">
+                        <h3>Restaurant Queue System Wireframe</h3>
+                        <p>Created an efficient user journey for a restaurant queue management app that reduces wait time and improves service flow.</p>
+                        <div class="project-meta">
+                            <span>Draw io</span>
+                            <span>2025</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="queue resturant website project.zip">View Wireframe</a>
+                            <a href="#restaurant-case-study">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="uml.png" alt="UML Diagrams">
+                    </div>
+                    <div class="project-content">
+                        <h3>UML Diagram Projects</h3>
+                        <p>Developed comprehensive UML diagrams (use case, class, sequence) for various school projects to improve software planning and documentation.</p>
+                        <div class="project-meta">
+                            <span>Draw io</span>
+                            <span>2025</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="./resturaunt UML.1.zip">View Samples</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+                <p>My academic journey at Maseno University.</p>
+            </div>
+            <div class="education-container">
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="education-title">Bachelor of Science in Information and Communication Technology Management</div>
+                        <div class="education-date">2022 - 2026</div>
+                    </div>
+                    <div class="education-details">
+                        <p>Maseno University | Expected Graduation: 2026</p>
+                        <p>Current GPA: 3.2 | Key Achievements: Group Project Proposal (Grade B), System Administration (Grade C)</p>
+                    </div>
+                    <h4>Relevant Coursework:</h4>
+                    <div class="courses-list">
+                        <span class="course-tag">Advanced Database Systems</span>
+                        <span class="course-tag">Workflow Applications</span>
+                        <span class="course-tag">ICT Consultancy</span>
+                        <span class="course-tag">Enterprise Networking</span>
+                        <span class="course-tag">Object-Oriented Programming</span>
+                        <span class="course-tag">Operations Management</span>
+                        <span class="course-tag">Discrete Structures</span>
+                        <span class="course-tag">System Administration</span>
+                        <span class="course-tag">Web Design & Development</span>
+                        <span class="course-tag">Data Structures & Algorithms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact</h2>
+                <p>Get in touch for opportunities or collaborations.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:mercymoraa012@gmail.com">mercymoraa012@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Phone/WhatsApp</h4>
+                            <p><a href="tel:+254757450853">+254 757 450853</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Kisumu, Kenya</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Me a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Mercy Naliaka Moraa</h3>
+                <p>ICT Student | Web Developer | System Designer</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/mercy-moraa-00a780363/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Moraa021"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/Moraa0012"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:mercymoraa012@gmail.com"><i class="fab fa-envelope"></i></a>
+                    <a href="https://wa.me/254757450853"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="copyright">© 2025 Mercy Naliaka Moraa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (document.querySelector('.nav-links').classList.contains('active')) {
+                    document.querySelector('.nav-links').classList.remove('active');
+                    document.querySelector('.mobile-menu i').classList.remove('fa-times');
+                    document.querySelector('.mobile-menu i').classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Show/hide scroll to top button
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            if (scrollTop > 300) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        });
+        
+        // Scroll to top button
+        document.querySelector('.scroll-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animate elements when they come into view
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.section-title, .about-content, .skill-category, .project-card, .education-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.section-title, .about-content, .skill-category, .project-card, .education-item').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+        
+        // Run animation check on scroll and load
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+
+<!-- Add this just before </body> -->
+<!-- City Services Case Study Modal -->
+<div id="cityServicesModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>City Services App - Case Study</h2>
+      <div class="modal-body">
+        <h3>Project Overview</h3>
+        <p>The City Services App was designed to provide residents with intuitive access to urban services through a centralized digital platform. This project involved creating comprehensive wireframes for all key user flows.</p>
+        
+        <h3>Challenge</h3>
+        <p>City residents were frustrated with fragmented services across multiple platforms, leading to confusion and inefficiency in accessing basic urban services like waste collection, parking permits, and utility payments.</p>
+        
+        <h3>Solution</h3>
+        <p>I designed a unified interface that:</p>
+        <ul>
+          <li>Consolidated all city services into a single platform</li>
+          <li>Implemented intuitive navigation with clear categorization</li>
+          <li>Created responsive designs for both mobile and desktop users</li>
+          <li>Incorporated accessibility features for diverse users</li>
+        </ul>
+        
+        <h3>Process</h3>
+        <ol>
+          <li>Conducted user research through surveys and interviews</li>
+          <li>Created user personas and journey maps</li>
+          <li>Developed low-fidelity wireframes for core flows</li>
+          <li>Iterated based on stakeholder feedback</li>
+          <li>Delivered high-fidelity wireframes with detailed annotations</li>
+        </ol>
+        
+        <h3>Results</h3>
+        <p>The wireframes received distinction from faculty and were praised for their:</p>
+        <ul>
+          <li>Clear information architecture</li>
+          <li>Intuitive navigation patterns</li>
+          <li>Comprehensive coverage of user needs</li>
+        </ul>
+        
+        <div class="modal-footer">
+          <a href="./CITY PROJECT.zip" class="btn">Download Wireframes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Restaurant Queue System Case Study Modal -->
+  <div id="restaurantQueueModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Restaurant Queue System - Case Study</h2>
+      <div class="modal-body">
+        <h3>Project Overview</h3>
+        <p>The Restaurant Queue System was designed to streamline customer flow and reduce wait times through a digital queuing solution. This project focused on creating an efficient user journey from arrival to seating.</p>
+        
+        <h3>Challenge</h3>
+        <p>Popular restaurants were losing customers due to long wait times and inefficient manual queue management. Customers had no visibility into their wait status and often left before being seated.</p>
+        
+        <h3>Solution</h3>
+        <p>I designed a system that:</p>
+        <ul>
+          <li>Allowed digital check-in via mobile or kiosk</li>
+          <li>Provided real-time queue position updates</li>
+          <li>Enabled SMS notifications when table is ready</li>
+          <li>Gave restaurants tools to manage seating efficiency</li>
+        </ul>
+        
+        <h3>Process</h3>
+        <ol>
+          <li>Observed queue management at 3 different restaurants</li>
+          <li>Identified pain points through customer interviews</li>
+          <li>Created flow diagrams for all user scenarios</li>
+          <li>Developed interactive wireframes for key screens</li>
+          <li>Conducted usability testing with prototypes</li>
+        </ol>
+        
+        <h3>Results</h3>
+        <p>The solution demonstrated potential to:</p>
+        <ul>
+          <li>Reduce customer walkaways by 40%</li>
+          <li>Improve table turnover efficiency</li>
+          <li>Enhance customer satisfaction with transparency</li>
+        </ul>
+        
+        <div class="modal-footer">
+          <a href="queue resturant website project.zip" class="btn">Download Wireframes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal.show {
+      opacity: 1;
+    }
+    
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+      transform: translateY(-50px);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    
+    .modal.show .modal-content {
+      transform: translateY(0);
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #aaa;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .close-modal:hover {
+      color: var(--accent);
+    }
+    
+    .modal h2 {
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+    }
+    
+    .modal h3 {
+      color: var(--primary);
+      margin: 1.5rem 0 0.5rem;
+    }
+    
+    .modal-body {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding-right: 1rem;
+    }
+    
+    .modal-footer {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    
+    /* Custom scrollbar for modal */
+    .modal-body::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    .modal-body::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    
+    .modal-body::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+    
+    .modal-body::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary);
+    }
+    
+    @media (max-width: 768px) {
+      .modal-content {
+        margin: 10% auto;
+        width: 95%;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+  
+  <script>
+    // Modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get modal elements
+      const cityModal = document.getElementById('cityServicesModal');
+      const restaurantModal = document.getElementById('restaurantQueueModal');
+      
+      // Get buttons that open modals
+      const cityButtons = document.querySelectorAll('a[href="#city-case-study"]');
+      const restaurantButtons = document.querySelectorAll('a[href="#restaurant-case-study"]');
+      
+      // Get close buttons
+      const closeButtons = document.querySelectorAll('.close-modal');
+      
+      // Open City Services modal
+      cityButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          cityModal.style.display = 'block';
+          setTimeout(() => {
+            cityModal.classList.add('show');
+          }, 10);
+        });
+      });
+      
+      // Open Restaurant Queue modal
+      restaurantButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          restaurantModal.style.display = 'block';
+          setTimeout(() => {
+            restaurantModal.classList.add('show');
+          }, 10);
+        });
+      });
+      
+      // Close modals
+      closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const modal = this.closest('.modal');
+          modal.classList.remove('show');
+          setTimeout(() => {
+            modal.style.display = 'none';
+          }, 300);
+        });
+      });
+      
+      // Close when clicking outside modal content
+      window.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal')) {
+          e.target.classList.remove('show');
+          setTimeout(() => {
+            e.target.style.display = 'none';
+          }, 300);
+        }
+      });
+      
+      // Close with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          const openModal = document.querySelector('.modal.show');
+          if (openModal) {
+            openModal.classList.remove('show');
+            setTimeout(() => {
+              openModal.style.display = 'none';
+            }, 300);
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
